@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 package net.darbia.pl.data.sql;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,11 +15,11 @@ import org.apache.logging.log4j.Logger;
 public final class SQL
 {
     private static final Logger LOGGER;
-    
+
     private SQL() {
         throw new IllegalStateException("Utility class");
     }
-    
+
     public static Connection connect() {
         Connection connection = null;
         try {
@@ -34,7 +30,7 @@ public final class SQL
         }
         return connection;
     }
-    
+
     public static void firstTimeRun() {
         try {
             final Statement stmt = connect().createStatement();
@@ -53,9 +49,7 @@ public final class SQL
                 stmt.execute("INSERT INTO Settings(Key,Value) VALUES('country','US')");
                 stmt.execute("INSERT INTO Settings(Key,Value) VALUES('password','yb86aKcCaUreNjLHG0TpBArVDQWF0G9ksLJlUADaAhA=')");
                 stmt.execute("INSERT INTO Settings(Key,Value) VALUES('salt','YI38cM7TuDiZ8cdOlKYDd0Hhuf6QZx')");
-                if (stmt != null) {
-                    stmt.close();
-                }
+                stmt.close();
             }
             catch (Throwable t) {
                 if (stmt != null) {
@@ -73,7 +67,7 @@ public final class SQL
             SQL.LOGGER.error(sqle);
         }
     }
-    
+
     public static void saveTimes(final Map<String, DateTime> times) {
         try {
             final Connection conn = connect();
@@ -81,7 +75,7 @@ public final class SQL
                 final PreparedStatement pstmt = conn.prepareStatement("UPDATE Times SET Stamp = ? WHERE Label = ?");
                 try {
                     conn.setAutoCommit(false);
-                    final PreparedStatement preparedStatement;
+                    final PreparedStatement preparedStatement = null;
                     times.forEach((key, value) -> {
                         try {
                             preparedStatement.setString(1, value.toString());
@@ -91,13 +85,10 @@ public final class SQL
                         catch (SQLException sqle) {
                             SQL.LOGGER.error(sqle);
                         }
-                        return;
                     });
                     pstmt.executeBatch();
                     conn.commit();
-                    if (pstmt != null) {
-                        pstmt.close();
-                    }
+                    pstmt.close();
                 }
                 catch (Throwable t) {
                     if (pstmt != null) {
@@ -110,9 +101,7 @@ public final class SQL
                     }
                     throw t;
                 }
-                if (conn != null) {
-                    conn.close();
-                }
+                conn.close();
             }
             catch (Throwable t2) {
                 if (conn != null) {
@@ -130,20 +119,17 @@ public final class SQL
             SQL.LOGGER.error(sqle2);
         }
     }
-    
+
     public static Map<String, DateTime> loadTimes() {
-        final HashMap<String, DateTime> times = new HashMap<String, DateTime>();
+        final HashMap<String, DateTime> times = new HashMap<>();
         try {
             final ResultSet rs = connect().createStatement().executeQuery("SELECT * FROM Times");
             try {
                 while (rs.next()) {
                     times.put(rs.getString("Label"), new DateTime(rs.getString("Stamp")));
                 }
-                final HashMap<String, DateTime> hashMap = times;
-                if (rs != null) {
-                    rs.close();
-                }
-                return hashMap;
+                rs.close();
+                return times;
             }
             catch (Throwable t) {
                 if (rs != null) {
@@ -162,20 +148,17 @@ public final class SQL
             return times;
         }
     }
-    
+
     public static Map<String, String> loadPassword() {
         try {
             final ResultSet rs = connect().createStatement().executeQuery("SELECT Key,Value FROM Settings WHERE Key = 'password' OR Key = 'salt'");
             try {
-                final HashMap<String, String> password = new HashMap<String, String>();
+                final HashMap<String, String> password = new HashMap<>();
                 while (rs.next()) {
                     password.put(rs.getString("Key"), rs.getString("Value"));
                 }
-                final HashMap<String, String> hashMap = password;
-                if (rs != null) {
-                    rs.close();
-                }
-                return hashMap;
+                rs.close();
+                return password;
             }
             catch (Throwable t) {
                 if (rs != null) {
@@ -194,7 +177,7 @@ public final class SQL
             return null;
         }
     }
-    
+
     public static void updatePassword(final String password, final String salt) {
         final String sql = "UPDATE Settings SET Value = ? WHERE Key = ?";
         try {
@@ -208,9 +191,7 @@ public final class SQL
                     pstmt.setString(1, salt);
                     pstmt.setString(2, "salt");
                     pstmt.executeUpdate();
-                    if (pstmt != null) {
-                        pstmt.close();
-                    }
+                    pstmt.close();
                 }
                 catch (Throwable t) {
                     if (pstmt != null) {
@@ -223,9 +204,7 @@ public final class SQL
                     }
                     throw t;
                 }
-                if (conn != null) {
-                    conn.close();
-                }
+                conn.close();
             }
             catch (Throwable t2) {
                 if (conn != null) {
@@ -243,20 +222,17 @@ public final class SQL
             SQL.LOGGER.error(sqle);
         }
     }
-    
+
     public static Map<String, String> loadLocale() {
         try {
             final ResultSet rs = connect().createStatement().executeQuery("SELECT Key,Value FROM Settings WHERE Key = 'language' OR Key = 'country'");
             try {
-                final HashMap<String, String> locale = new HashMap<String, String>();
+                final HashMap<String, String> locale = new HashMap<>();
                 while (rs.next()) {
                     locale.put(rs.getString("Key"), rs.getString("Value"));
                 }
-                final HashMap<String, String> hashMap = locale;
-                if (rs != null) {
-                    rs.close();
-                }
-                return hashMap;
+                rs.close();
+                return locale;
             }
             catch (Throwable t) {
                 if (rs != null) {
@@ -275,7 +251,7 @@ public final class SQL
             return null;
         }
     }
-    
+
     public static void updateLocale(final String language, final String country) {
         final String sql = "UPDATE Settings SET Value = ? WHERE Key = ?";
         try {
@@ -287,9 +263,7 @@ public final class SQL
                 pstmt.setString(1, country);
                 pstmt.setString(2, "country");
                 pstmt.executeUpdate();
-                if (pstmt != null) {
-                    pstmt.close();
-                }
+                pstmt.close();
             }
             catch (Throwable t) {
                 if (pstmt != null) {
@@ -307,7 +281,7 @@ public final class SQL
             SQL.LOGGER.error(sqle);
         }
     }
-    
+
     static {
         LOGGER = LogManager.getLogger(SQL.class);
     }

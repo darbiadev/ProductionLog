@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 package net.darbia.pl.data;
 
 import org.apache.logging.log4j.LogManager;

@@ -1,45 +1,36 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 package net.darbia.pl.gui;
 
-import org.apache.logging.log4j.LogManager;
-import java.awt.event.ActionEvent;
-import javax.swing.text.JTextComponent;
-import java.util.List;
-import java.net.URL;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.CellEditorListener;
-import org.jdesktop.swingx.autocomplete.ComboBoxCellEditor;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.LayoutManager;
-import net.darbia.pl.objects.Order;
-import javax.swing.JOptionPane;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
-import java.util.Collection;
-import java.util.Vector;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Component;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
 import net.darbia.pl.data.HTML;
-import javax.swing.ImageIcon;
-import java.awt.event.ItemEvent;
-import javax.swing.JButton;
-import java.awt.event.ItemListener;
-import java.awt.EventQueue;
-import java.util.ResourceBundle;
 import net.darbia.pl.objects.Employee;
+import net.darbia.pl.objects.Order;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import org.jdesktop.swingx.autocomplete.ComboBoxCellEditor;
+
+import java.awt.AWTException;
+import java.awt.EventQueue;
+import java.awt.Robot;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import org.apache.logging.log4j.Logger;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.text.JTextComponent;
 
 class CreateScreenPrintOrderDialog
 {
