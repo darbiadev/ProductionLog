@@ -8,14 +8,14 @@
   <url>https://pl.darbia.net</url>
   <description>Logs production averages per machine.</description>
   <organization>
-    <url>https://darbia.net</url>
+    <url>https://darbia.dev</url>
     <name>Darbia</name>
   </organization>
   <developers>
     <developer>
-      <id>reydarb</id>
+      <id>shenanigansd</id>
       <name>Bradley Reynolds</name>
-      <email>b.brad2000@gmail.com</email>
+      <email>bradley.reynolds@darbia.dev</email>
       <roles>
         <role>Project Manager</role>
       </roles>
@@ -23,17 +23,17 @@
     </developer>
   </developers>
   <issueManagement>
-    <url>https://github.com/reydarb/ProductionLog/issues</url>
+    <url>https://github.com/shenanigansd/ProductionLog/issues</url>
     <system>GitHub Issues</system>
   </issueManagement>
   <scm>
-    <url>https://github.com/reydarb/ProductionLog</url>
-    <connection>scm:git:git@github.com:reydarb/ProductionLog.git</connection>
-    <developerConnection>scm:git:git@github.com:reydarb/ProductionLog.git</developerConnection>
+    <url>https://github.com/shenanigansd/ProductionLog</url>
+    <connection>scm:git:git@github.com:shenanigansd/ProductionLog.git</connection>
+    <developerConnection>scm:git:git@github.com:shenanigansd/ProductionLog.git</developerConnection>
   </scm>
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>18</maven.compiler.source>
+    <maven.compiler.target>18</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <build>
@@ -229,7 +229,7 @@
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
-      <version>2.10</version>
+      <version>2.11.2</version>
     </dependency>
     <dependency>
       <groupId>org.swinglabs.swingx</groupId>
@@ -239,64 +239,64 @@
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
-      <version>2.11.1</version>
+      <version>2.19.0</version>
     </dependency>
     <dependency>
       <groupId>com.github.lgooddatepicker</groupId>
       <artifactId>LGoodDatePicker</artifactId>
-      <version>10.3.1</version>
+      <version>11.2.1</version>
     </dependency>
     <dependency>
       <groupId>org.xerial</groupId>
       <artifactId>sqlite-jdbc</artifactId>
-      <version>3.25.2</version>
+      <version>3.39.3.0</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.9.8</version>
+      <version>2.13.4</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.9.8</version>
+      <version>2.14.0-rc1</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.3.2</version>
+      <version>5.9.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.3.2</version>
+      <version>5.9.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.6</version>
+      <version>2.11.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-dbcp2</artifactId>
-      <version>2.5.0</version>
+      <version>2.9.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>4.5</version>
+      <version>4.5.13</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-joda</artifactId>
-      <version>2.1.1</version>
+      <version>2.13.4</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>42.2.5</version>
+      <version>42.5.0</version>
     </dependency>
   </dependencies>
 </project>
